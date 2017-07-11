@@ -1,26 +1,51 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Welcome Message App</title>
+    <title>CheckBox and Radio Buttons App</title>
     <script type="text/javascript" src="phonegap.js"></script>
     <script type = "text/javascript">
     function onBodyLoad() {
       document.addEventListener("deviceready", PhonegapLoaded, false);
     }
+        
     function PhonegapLoaded(){
-      document.getElementById("submitButton").addEventListener("click", dispMessage);
+        document.getElementById("sendButton").addEventListener("click", dispMessage);
     }
+        
     function dispMessage(){
-      var nameOfUser = document.getElementById("name").value;
-      document.getElementById("welcomemsg").innerHTML = "Welcome "+nameOfUser + " !";
+        ElementsArray = document.getElementsByTagName('input');
+        var selectedContact = "";
+        var selectedTemplate = "";
+
+        for(var i = 0; i< ElementsArray.length; i++){
+            if(ElementsArray[i].type = ="checkbox" && ElementsArray[i].checked){
+                selectedContact+ = ElementsArray[i].value + " ";
+            }
+            if(ElementsArray[i].type = ="radio" && ElementsArray[i].checked){
+                selectedTemplate+ = ElementsArray[i].value;
+            }
+        }
+        document.getElementById("info").innerHTML = "Template selected is: " +
+            selectedTemplate +"<br>Contacts selected are : "+selectedContact;
     }
-  </script>
+</script>
 </head>
 <body onload = "onBodyLoad()">
-  <form>
-    Enter your name <input type = "text" id = "name"><br/>
-    <input type = "button" id = "submitButton" value = "Submit">
-    <div id = "welcomemsg"></div>
-  </form>
+    <form>
+        Choose a template <br>
+        <input type = "radio" name = "template" value = "Happy Birthday to You">
+        Happy Birthday to You <br>
+        <input type = "radio" name = "template" value = "Have a nice day"> Have a
+        nice day <br>
+        <input type = "radio" name = "template" value = "Its time to take
+        backup"> Its time to take backup <br><br>
+        Choose the contacts to send the selected template: <br>
+        <input type = "checkbox" name = "contact" value = "Bintu"> Bintu <br>
+        <input type = "checkbox" name = "contact" value = "Naman">Naman <br>
+        <input type = "checkbox" name = "contact" value = "Chirag">Chirag <br>
+        <input type = "checkbox" name = "contact" value = "Kim">Kim <br><br>
+        <input type = "button" id = "sendButton" value = "Send">
+        <div id = info></div>
+    </form>
 </body>
 </html>
