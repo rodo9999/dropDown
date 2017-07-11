@@ -18,11 +18,11 @@
         var selectedTemplate = "";
 
         for(var i = 0; i< ElementsArray.length; i++){
-            if(ElementsArray[i].type = ="checkbox" && ElementsArray[i].checked){
-                selectedContact+ = ElementsArray[i].value + " ";
+            if(ElementsArray[i].type =="checkbox" && ElementsArray[i].checked){
+                selectedContact += ElementsArray[i].value + " ";
             }
-            if(ElementsArray[i].type = ="radio" && ElementsArray[i].checked){
-                selectedTemplate+ = ElementsArray[i].value;
+            if(ElementsArray[i].type == "radio" && ElementsArray[i].checked){
+                selectedTemplate += ElementsArray[i].value;
             }
         }
         document.getElementById("info").innerHTML = "Template selected is: " +
