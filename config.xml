@@ -1,14 +1,14 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id = "com.phonegap.pgwelcomemsg"
+    id = "com.phonegap.checkbox"
     version = "1.0.0">
-<name>Welcome App</name>
+<name>Checkboxes y radio buttons</name>
 <description>
-  App that displays welcome message to the user.
+  Prueba de checkboxes y radio buttons.
 </description>
 <author href = "http://bmharwani.com" email = "bmharwani@yahoo.com">
-  Bintu Harwani
+  Rodo
 </author>
 
 <feature name = "http://api.phonegap.com/1.0/device"/>
