@@ -1,13 +1,13 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id = "com.phonegap.checkbox"
+    id = "com.rodo.dropdown"
     version = "1.0.0">
-<name>Checkboxes y radio buttons</name>
+<name>Drop-Down List</name>
 <description>
-  Prueba de checkboxes y radio buttons.
+  Prueba de drop-down list.
 </description>
-<author href = "http://bmharwani.com" email = "bmharwani@yahoo.com">
+<author>
   Rodo
 </author>
 
