@@ -1,51 +1,40 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>CheckBox and Radio Buttons App</title>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <script type = "text/javascript">
-    function onBodyLoad() {
-      document.addEventListener("deviceready", PhonegapLoaded, false);
-    }
-        
-    function PhonegapLoaded(){
-        document.getElementById("sendButton").addEventListener("click", dispMessage);
-    }
-        
-    function dispMessage(){
-        ElementsArray = document.getElementsByTagName('input');
-        var selectedContact = "";
-        var selectedTemplate = "";
-
-        for(var i = 0; i< ElementsArray.length; i++){
-            if(ElementsArray[i].type =="checkbox" && ElementsArray[i].checked){
-                selectedContact += ElementsArray[i].value + " ";
-            }
-            if(ElementsArray[i].type == "radio" && ElementsArray[i].checked){
-                selectedTemplate += ElementsArray[i].value;
-            }
-        }
-        document.getElementById("info").innerHTML = "Template selected is: " +
-            selectedTemplate +"<br>Contacts selected are : "+selectedContact;
-    }
+	<title>List App</title>
+	<script type="text/javascript" src="phonegap.js"></script>
+	<script type = "text/javascript">
+		function onBodyLoad() {
+			// document.addEventListener("deviceready", PhonegapLoaded, false);
+			
+			// El bloque siguiente está copiado de https://stackoverflow.com/questions/6687099/how-to-fire-deviceready-event-in-chrome-browser-trying-to-debug-phonegap-projec
+		    if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+				document.addEventListener("deviceready", PhonegapLoaded, false);
+			} else {
+				PhonegapLoaded();
+			}
+		}
+		
+		function PhonegapLoaded(){
+			document.getElementById("PhoneNo").addEventListener("change", dispMessage);
+		}
+		
+		function dispMessage(){
+			var selectedPhone = document.getElementById("PhoneNo").value;
+			document.getElementById("info").innerHTML = "Phone Number selected is: " +
+			selectedPhone;
+		}
 </script>
 </head>
 <body onload = "onBodyLoad()">
-    <form>
-        Choose a template <br>
-        <input type = "radio" name = "template" value = "Happy Birthday to You">
-        Happy Birthday to You <br>
-        <input type = "radio" name = "template" value = "Have a nice day"> Have a
-        nice day <br>
-        <input type = "radio" name = "template" value = "Its time to take
-        backup"> Its time to take backup <br><br>
-        Choose the contacts to send the selected template: <br>
-        <input type = "checkbox" name = "contact" value = "Bintu"> Bintu <br>
-        <input type = "checkbox" name = "contact" value = "Naman">Naman <br>
-        <input type = "checkbox" name = "contact" value = "Chirag">Chirag <br>
-        <input type = "checkbox" name = "contact" value = "Kim">Kim <br><br>
-        <input type = "button" id = "sendButton" value = "Send">
-        <div id = info></div>
-    </form>
+	<select id = "PhoneNo" >
+		<option value = "none">Select a Phone Number</option>
+		<option value = "1111111111">1111111111</option>
+		<option value = "2222222222">2222222222</option>
+		<option value = "3333333333">3333333333</option>
+		<option value = "4444444444">4444444444</option>
+		<option value = "5555555555">5555555555</option>
+	</select><br><br>
+	<div id = "info"></div>
 </body>
 </html>
